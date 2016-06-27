@@ -28,4 +28,8 @@ public class PetitionData {
                 .mapToInt(e -> e.getValue())
         .sum();
     }
+
+    public String getName() {
+        return name;
+    }
 }
