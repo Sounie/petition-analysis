@@ -12,7 +12,7 @@ public class PetitionDataParserTest {
     @Test
     public void shouldParseValidJsonFromString() throws IOException {
 //        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
-        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("australia-canada-nz-free-movement.json");
+        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("prevent-trump-state-visit-data.json");
 
         String jsonString;
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream))) {
@@ -32,17 +32,17 @@ public class PetitionDataParserTest {
                 e -> System.out.println(e.getKey() + ": " + e.getValue())
         );
 
-        Map<String, Integer> countByConstituency = petitionData.getCountByConstituency();
-
-        List<Map.Entry<String, Integer>> sortedByConstituency = countByConstituency.entrySet().stream().sorted(
-                (e1, e2) -> e1.getValue().compareTo(e2.getValue())
-        ).collect(toList());
+//        Map<String, Integer> countByConstituency = petitionData.getCountByConstituency();
+//
+//        List<Map.Entry<String, Integer>> sortedByConstituency = countByConstituency.entrySet().stream().sorted(
+//                (e1, e2) -> e1.getValue().compareTo(e2.getValue())
+//        ).collect(toList());
 //
 //        sortedByConstituency.forEach(
 //                e -> System.out.println(e.getKey() + ": " + e.getValue())
 //        );
 
-//        System.out.println("Total count:  " + petitionData.calculateTotal());
+        System.out.println("Total count:  " + petitionData.calculateTotal());
     }
 
     @Test
