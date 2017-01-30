@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.toList;
 // TODO: This isn't really about unit tests, just a way of driving out some parsing and output of data
 public class PetitionDataParserTest {
     @Test
-    public void shouldParseValidJsonFromString() throws IOException {
+    public void showOrderedByCountryAndOrderedByConstituency() throws IOException {
 //        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
         InputStream stream = PetitionDataParserTest.class.getResourceAsStream("prevent-trump-state-visit-data.json");
 
@@ -28,19 +28,22 @@ public class PetitionDataParserTest {
                 (e1, e2) -> e1.getValue().compareTo(e2.getValue())
         ).collect(toList());
 
+        System.out.println("Countries:\n");
         sorted.forEach(
                 e -> System.out.println(e.getKey() + ": " + e.getValue())
         );
 
-//        Map<String, Integer> countByConstituency = petitionData.getCountByConstituency();
-//
-//        List<Map.Entry<String, Integer>> sortedByConstituency = countByConstituency.entrySet().stream().sorted(
-//                (e1, e2) -> e1.getValue().compareTo(e2.getValue())
-//        ).collect(toList());
-//
-//        sortedByConstituency.forEach(
-//                e -> System.out.println(e.getKey() + ": " + e.getValue())
-//        );
+        Map<String, Integer> countByConstituency = petitionData.getCountByConstituency();
+
+        List<Map.Entry<String, Integer>> sortedByConstituency = countByConstituency.entrySet().stream().sorted(
+                (e1, e2) -> e1.getValue().compareTo(e2.getValue())
+        ).collect(toList());
+        System.out.println("\n\n");
+
+        System.out.println("Constituencies: ");
+        sortedByConstituency.forEach(
+                e -> System.out.println(e.getKey() + ": " + e.getValue())
+        );
 
         System.out.println("Total count:  " + petitionData.calculateTotal());
     }
