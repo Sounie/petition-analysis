@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.io.*;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ public class PetitionDataParserTest {
         Map<String, Integer> countByCountry = petitionData.getCountByCountry();
 
         List<Map.Entry<String, Integer>> sorted = countByCountry.entrySet().stream().sorted(
-                (e1, e2) -> e1.getValue().compareTo(e2.getValue())
+                Comparator.comparing(Map.Entry::getValue)
         ).collect(toList());
 
         System.out.println("Countries:\n");
@@ -36,7 +37,7 @@ public class PetitionDataParserTest {
         Map<String, Integer> countByConstituency = petitionData.getCountByConstituency();
 
         List<Map.Entry<String, Integer>> sortedByConstituency = countByConstituency.entrySet().stream().sorted(
-                (e1, e2) -> e1.getValue().compareTo(e2.getValue())
+                Comparator.comparing(Map.Entry::getValue)
         ).collect(toList());
         System.out.println("\n\n");
 
