@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class PetitionDataParserTest {
         InputStream stream = PetitionDataParserTest.class.getResourceAsStream("prevent-trump-state-visit-data.json");
 
         String jsonString;
-        try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream))) {
+        try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
             jsonString = buffer.lines().collect(Collectors.joining("\n"));
         }
 
@@ -51,12 +52,15 @@ public class PetitionDataParserTest {
 
     @Test
     public void testDeltaByCountry() throws Exception {
-        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
-        InputStream streamBots = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data-including-bots.json");
+        PetitionData countsByCountry = null;
+        try (InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json")) {
+            countsByCountry = dataFromStream(stream);
+        }
 
-        PetitionData countsByCountry = dataFromStream(stream);
-
-        PetitionData countsByCountryWithBots = dataFromStream(streamBots);
+        PetitionData countsByCountryWithBots = null;
+        try (InputStream streamBots = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data-including-bots.json")) {
+            countsByCountryWithBots = dataFromStream(streamBots);
+        }
 
         DataDeltaChecker checker = new DataDeltaChecker();
         checker.spotTheCountryDifferences(countsByCountryWithBots, countsByCountry);
@@ -64,12 +68,15 @@ public class PetitionDataParserTest {
 
     @Test
     public void testDeltaByConstituency() throws Exception {
-        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
-        InputStream streamBots = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data-including-bots.json");
+        PetitionData data = null;
+        try (InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json")) {
+            data = dataFromStream(stream);
+        }
 
-        PetitionData data = dataFromStream(stream);
-
-        PetitionData dataWithBots = dataFromStream(streamBots);
+        PetitionData dataWithBots = null;
+        try (InputStream streamBots = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data-including-bots.json")) {
+            dataWithBots = dataFromStream(streamBots);
+        }
 
         DataDeltaChecker checker = new DataDeltaChecker();
         checker.spotTheConstituencyyDifferences(data, dataWithBots);
@@ -77,7 +84,7 @@ public class PetitionDataParserTest {
 
     private PetitionData dataFromStream(InputStream stream) throws IOException {
         String jsonString;
-        try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream))) {
+        try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
             jsonString = buffer.lines().collect(Collectors.joining("\n"));
         }
 
