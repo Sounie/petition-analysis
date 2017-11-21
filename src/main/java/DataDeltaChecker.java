@@ -21,8 +21,8 @@ public class DataDeltaChecker {
         Map<String, Integer> countByCountry1 = data1.getCountByCountry();
         Map<String, Integer> countByCountry2 = data2.getCountByCountry();
 
-        for (String country : countByCountry1.keySet()) {
-            deltaByCountry.put(country, countByCountry1.get(country) - countByCountry2.get(country));
+        for (Map.Entry<String, Integer> countryCount1 : countByCountry1.entrySet()) {
+            deltaByCountry.put(countryCount1.getKey(), countryCount1.getValue() - countByCountry2.get(countryCount1.getKey()));
         }
 
         // FIXME - determine difference between set keys
@@ -45,8 +45,8 @@ public class DataDeltaChecker {
         Map<String, Integer> countByConstituency1 = data1.getCountByConstituency();
         Map<String, Integer> countByConstituency2 = data2.getCountByConstituency();
 
-        for (String country : countByConstituency1.keySet()) {
-            deltaByConstituency.put(country, countByConstituency1.get(country) - countByConstituency2.get(country));
+        for (Map.Entry<String, Integer> countryCount1 : countByConstituency1.entrySet()) {
+            deltaByConstituency.put(countryCount1.getKey(), countryCount1.getValue() - countByConstituency2.get(countryCount1.getKey()));
         }
 
         // FIXME - determine difference between set keys

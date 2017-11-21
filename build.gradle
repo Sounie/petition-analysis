@@ -1,3 +1,19 @@
+plugins {
+    id "com.github.spotbugs" version "1.6.0"
+}
+
+spotbugs {
+    toolVersion = '3.1.0'
+}
+
+// To generate an HTML report instead of XML
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '4.3.1'
 }
@@ -24,3 +40,4 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-engine:5.0.1'
     )
 }
+
