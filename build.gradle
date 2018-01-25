@@ -3,7 +3,7 @@ plugins {
 }
 
 spotbugs {
-    toolVersion = '3.1.0'
+    toolVersion = '3.1.1'
 }
 
 // To generate an HTML report instead of XML
@@ -15,7 +15,7 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.3.1'
+    gradleVersion = '4.5'
 }
 
 group 'sounie'
