@@ -15,7 +15,7 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.5'
+    gradleVersion = '4.6'
 }
 
 group 'sounie'
@@ -29,15 +29,19 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+ext {
+    junitVersion = "5.1.0"
+}
+
+    dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
 
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.1'
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 
     testCompile 'org.junit.vintage:junit-vintage-engine:4.12.1'
 
     testRuntime(
-            'org.junit.jupiter:junit-jupiter-engine:5.0.1'
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     )
 }
 
