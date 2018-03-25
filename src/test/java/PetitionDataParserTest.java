@@ -13,8 +13,7 @@ import static java.util.stream.Collectors.toList;
 public class PetitionDataParserTest {
     @Test
     public void showOrderedByCountryAndOrderedByConstituency() throws IOException {
-//        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
-        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("prevent-trump-state-visit-data.json");
+        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
 
         String jsonString;
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {

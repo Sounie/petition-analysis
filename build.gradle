@@ -34,11 +34,11 @@ ext {
 }
 
     dependencies {
-    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.google.code.gson:gson:2.8.2'
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 
-    testCompile 'org.junit.vintage:junit-vintage-engine:4.12.1'
+    testCompile "org.junit.vintage:junit-vintage-engine:$junitVersion"
 
     testRuntime(
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
