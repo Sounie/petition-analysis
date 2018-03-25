@@ -38,8 +38,6 @@ ext {
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 
-    testCompile "org.junit.vintage:junit-vintage-engine:$junitVersion"
-
     testRuntime(
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     )
