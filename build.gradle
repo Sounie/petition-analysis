@@ -1,9 +1,9 @@
 plugins {
-    id "com.github.spotbugs" version "1.6.0"
+    id "com.github.spotbugs" version "1.6.2"
 }
 
 spotbugs {
-    toolVersion = '3.1.1'
+    toolVersion = '3.1.3'
 }
 
 // To generate an HTML report instead of XML
@@ -15,13 +15,14 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.6'
+    gradleVersion = '4.8'
 }
 
 group 'sounie'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'com.github.spotbugs'
 
 sourceCompatibility = 1.8
 
@@ -33,7 +34,7 @@ ext {
     junitVersion = "5.1.0"
 }
 
-    dependencies {
+dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
