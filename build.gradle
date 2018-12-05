@@ -1,27 +1,27 @@
 plugins {
-    id "com.github.spotbugs" version "1.6.5"
+//    id "com.github.spotbugs" version "1.6.5"
     id 'java'
 }
 
-spotbugs {
-    toolVersion = '3.1.8'
-}
+//spotbugs {
+//    toolVersion = '3.1.9'
+//}
 
 // To generate an HTML report instead of XML
-tasks.withType(com.github.spotbugs.SpotBugsTask) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-}
+//tasks.withType(com.github.spotbugs.SpotBugsTask) {
+//    reports {
+//        xml.enabled = false
+//        html.enabled = true
+//    }
+//}
 
 group 'sounie'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'com.github.spotbugs'
+//apply plugin: 'com.github.spotbugs'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()

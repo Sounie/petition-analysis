@@ -61,13 +61,16 @@ public class PetitionDataParserTest {
             countsByCountryWithBots = dataFromStream(streamBots);
         }
 
-        DataDeltaChecker checker = new DataDeltaChecker();
-        checker.spotTheCountryDifferences(countsByCountryWithBots, countsByCountry);
+        if (countsByCountry != null && countsByCountryWithBots != null) {
+            DataDeltaChecker checker = new DataDeltaChecker();
+            checker.spotTheCountryDifferences(countsByCountryWithBots, countsByCountry);
+        }
     }
 
     @Test
     public void testDeltaByConstituency() throws Exception {
         PetitionData data = null;
+
         try (InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json")) {
             data = dataFromStream(stream);
         }
@@ -77,8 +80,10 @@ public class PetitionDataParserTest {
             dataWithBots = dataFromStream(streamBots);
         }
 
-        DataDeltaChecker checker = new DataDeltaChecker();
-        checker.spotTheConstituencyyDifferences(data, dataWithBots);
+        if (dataWithBots != null) {
+            DataDeltaChecker checker = new DataDeltaChecker();
+            checker.spotTheConstituencyyDifferences(data, dataWithBots);
+        }
     }
 
     private PetitionData dataFromStream(InputStream stream) throws IOException {
