@@ -4,7 +4,7 @@ plugins {
 }
 
 //spotbugs {
-//    toolVersion = '3.1.9'
+//    toolVersion = '3.1.10'
 //}
 
 // To generate an HTML report instead of XML
@@ -28,7 +28,7 @@ repositories {
 }
 
 ext {
-    junitVersion = "5.3.0"
+    junitVersion = "5.3.2"
 }
 
 dependencies {
