@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -50,6 +51,7 @@ public class PetitionDataParserTest {
         System.out.println("Total count:  " + petitionData.calculateTotal());
     }
 
+    @Disabled
     @Test
     public void testDeltaByCountry() throws Exception {
         PetitionData countsByCountry = null;
@@ -68,6 +70,8 @@ public class PetitionDataParserTest {
         }
     }
 
+    // From earlier referendum
+    @Disabled
     @Test
     public void testDeltaByConstituency() throws Exception {
         PetitionData data = null;
