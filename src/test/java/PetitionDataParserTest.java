@@ -15,7 +15,7 @@ public class PetitionDataParserTest {
     @Test
     public void showOrderedByCountryAndOrderedByConstituency() throws IOException {
 //        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("2nd-referendum-data.json");
-                InputStream stream = PetitionDataParserTest.class.getResourceAsStream("revoke-article-50-data.json");
+        InputStream stream = PetitionDataParserTest.class.getResourceAsStream("revoke-article-50-data.json");
 
         String jsonString;
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
