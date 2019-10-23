@@ -33,7 +33,10 @@ ext {
 }
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.8.5'
+    compile(
+            'com.google.code.gson:gson:2.8.5',
+            'io.dropwizard:dropwizard-core:2.0.0-rc10'
+    )
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 
