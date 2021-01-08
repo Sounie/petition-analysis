@@ -36,12 +36,14 @@ ext {
 dependencies {
     compile(
             'com.google.code.gson:gson:2.8.6',
-            'io.dropwizard:dropwizard-core:2.0.16'
+            'io.dropwizard:dropwizard-core:2.0.17'
     )
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
 
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.11.0'
 }
 
 test {
