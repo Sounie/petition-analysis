@@ -22,8 +22,11 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 //apply plugin: 'com.github.spotbugs'
 
-sourceCompatibility = 11
-targetCompatibility = 11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -36,7 +39,7 @@ ext {
 dependencies {
     compile(
             'com.google.code.gson:gson:2.8.6',
-            'io.dropwizard:dropwizard-core:2.0.17'
+            'io.dropwizard:dropwizard-core:2.0.18'
     )
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
@@ -44,6 +47,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.11.0'
+}
+
+java {
+    consistentResolution {
+        useCompileClasspathVersions()
+    }
 }
 
 test {
