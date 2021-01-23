@@ -1,4 +1,6 @@
-Just a hobby project for looking into the data made available from petition site.
+Just a hobby project for looking into the data made available from petition site.  
+
+Most recent (2020 - ) updates are just trying out upgrades of Gradle on a relatively small project. 
 
 My curiosity started with the "[EU Referendum Rules triggering a 2nd EU Referendum](https://petition.parliament.uk/petitions/131215)" petition
 
