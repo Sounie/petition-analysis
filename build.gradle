@@ -1,7 +1,7 @@
 plugins {
-    id "com.github.spotbugs" version "4.6.0"
+    id "com.github.spotbugs" version "4.7.0"
     id 'java'
-    id "com.github.ben-manes.versions" version "0.36.0"
+    id "com.github.ben-manes.versions" version "0.38.0"
 }
 
 spotbugs {
@@ -39,7 +39,7 @@ ext {
 dependencies {
     compile(
             'com.google.code.gson:gson:2.8.6',
-            'io.dropwizard:dropwizard-core:2.0.18'
+            'io.dropwizard:dropwizard-core:2.0.20'
     )
 
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
